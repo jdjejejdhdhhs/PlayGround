@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#071613" />
+  <link rel="icon" href="data:," />
+  <title>TOUCHLINE — Pro Football</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="pitch"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar"><a class="brand" href="#home"><span class="brand-mark">T</span><span>TOUCHLINE<small>PRO FOOTBALL</small></span></a><div class="top-right"><span class="live-dot"></span><span>CAREER HUB</span><div class="profile"><span id="profile-initial">J</span></div></div></header>
+    <main id="home" class="home-screen">
+      <section class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> THE BEAUTIFUL GAME, YOUR WAY</div><h1>OWN THE<br><em>90 MINUTES.</em></h1><p>Build your career. Earn your place. Make every moment count.</p><div class="hero-actions"><button id="play-match" class="btn-primary"><span>▶</span> KICK OFF <b>→</b></button><button id="career-button" class="btn-ghost">MY CAREER <span>↗</span></button></div><div class="hero-footnote"><span class="pulse-ring">●</span> YOUR JOURNEY STARTS HERE <span class="foot-sep">/</span> SEASON 01</div></section>
+      <section class="hero-side"><div class="season-card"><div class="season-top"><span>YOUR CAREER</span><span class="season-badge">S01</span></div><div class="career-player"><div class="player-number">10</div><div><h2 id="player-name">JAMIE<br>HAYES</h2><span id="player-role">ATTACKING MIDFIELDER · 19</span></div><div class="rating"><strong id="player-rating">68</strong><small>OVR</small></div></div><div class="club-strip"><span class="club-crest" id="club-crest">N</span><div><strong id="club-name">NORTHBRIDGE FC</strong><small>ENGLISH CHAMPIONSHIP</small></div><span class="club-arrow">↗</span></div><div class="season-stats"><div><strong id="stat-apps">0</strong><small>APPS</small></div><div><strong id="stat-goals">0</strong><small>GOALS</small></div><div><strong id="stat-assists">0</strong><small>ASSISTS</small></div><div><strong id="stat-value">€1.2m</strong><small>VALUE</small></div></div></div><div class="match-preview"><div class="preview-head"><span>NEXT FIXTURE</span><span class="fixture-date">SAT · 15:00</span></div><div class="fixture"><div class="team"><div class="team-crest home-crest">N</div><strong>NORTHBRIDGE</strong></div><span class="vs">VS</span><div class="team"><div class="team-crest away-crest">R</div><strong>RIVERSIDE</strong></div></div><div class="fixture-foot"><span>🏟  THE FOUNDRY</span><span>LEAGUE · MD 01</span></div></div></section>
+      <div class="hero-bottom"><span>SCROLL TO EXPLORE <b>↓</b></span><span>TOUCHLINE ENGINE <i>●</i> MATCH READY</span></div>
+    </main>
+    <section id="career-screen" class="career-screen hidden"><div class="career-heading"><button class="back-button" id="career-back">← BACK</button><div class="eyebrow"><span class="eyebrow-line"></span> BUILD YOUR LEGACY</div><h1>THE CAREER<br><em>IS YOURS.</em></h1><p>One player. One journey. Every decision matters.</p></div><div class="career-layout"><nav class="career-tabs"><button class="active" data-tab="overview">01 <span>OVERVIEW</span></button><button data-tab="training">02 <span>TRAINING</span></button><button data-tab="transfers">03 <span>TRANSFERS</span></button><button data-tab="profile">04 <span>PLAYER EDIT</span></button></nav><div id="career-panel" class="career-panel"></div></div></section>
+    <section id="match-screen" class="match-screen hidden"><div class="match-top"><div class="scoreboard"><div class="score-team"><span class="score-crest home-crest">N</span><b id="home-short">NOR</b></div><strong id="score">0 <i>—</i> 0</strong><div class="score-team"><b>RIV</b><span class="score-crest away-crest">R</span></div><div class="match-clock"><span class="clock-dot"></span><b id="clock">00:00</b></div></div><button id="pause-button" class="pause-button">Ⅱ</button></div><div id="toast" class="toast"></div><div class="match-bottom"><div class="player-indicator"><span class="player-portrait">10</span><div><b id="controlled-name">J. HAYES</b><small id="controlled-pos">CAM · 68</small></div><div class="stamina"><span id="stamina-fill"></span></div></div><div class="action-hint" id="action-hint">ATTACKING · BUILD UP</div></div><div id="touch-controls" class="touch-controls"><div class="stick-zone"><div id="joystick" class="joystick"><div class="stick-knob"></div></div></div><div class="action-buttons"><button data-action="tackle" class="action-btn btn-tackle"><span>✦</span><small>TACKLE</small></button><button data-action="pass" class="action-btn btn-pass"><span>↗</span><small>PASS</small></button><button data-action="cross" class="action-btn btn-cross"><span>⌁</span><small>CROSS</small></button><button data-action="shoot" class="action-btn btn-shoot"><span>◉</span><small>SHOOT</small></button><button data-action="sprint" class="action-btn btn-sprint"><span>»</span><small>SPRINT</small></button></div></div></section>
+    <div id="pause-modal" class="modal hidden"><div class="modal-card"><span class="eyebrow">MATCH PAUSED</span><h2>TAKE A<br><em>BREATHER.</em></h2><p>Take a moment. The match is waiting.</p><button id="resume-button" class="btn-primary">RESUME MATCH <b>→</b></button><button id="camera-button" class="btn-ghost">CAMERA: BROADCAST ↻</button><button id="weather-button" class="btn-ghost">WEATHER: CLEAR ↻</button><button id="quit-button" class="btn-ghost">END MATCH</button></div></div>
+    <div id="result-modal" class="modal hidden"><div class="modal-card result-card"><span class="eyebrow">FULL TIME</span><h2 id="result-title">A STATEMENT<br><em>PERFORMANCE.</em></h2><div class="result-score" id="result-score">0 — 0</div><p id="result-copy">A strong start to your season.</p><button id="result-continue" class="btn-primary">CONTINUE CAREER <b>→</b></button></div></div>
+    <div id="event-banner" class="event-banner"></div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
